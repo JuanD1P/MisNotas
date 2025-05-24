@@ -8,6 +8,7 @@ import Registro from './Components/Registro';
 import Inicio from './Components/Inicio';
 import Create from './Components/Create';
 import NotFound from "./Components/NotFound";
+import AgregarPendiente from './Components/AgregarPendiente';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProtectedRoute from './Components/PrivateRoute';
 
@@ -48,6 +49,12 @@ function App() {
                             <Inicio />
                         </ProtectedRoute>
                     } />
+                    <Route path="/AgregarPendiente" element={
+                        <ProtectedRoute allowedRoles={['USER']}>
+                            <AgregarPendiente />
+                        </ProtectedRoute>
+                    } />
+
                  
 
                 

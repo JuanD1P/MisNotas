@@ -7,6 +7,7 @@ import axios from 'axios';
 const router = express.Router();
 
 
+
 // 🚀 REGISTRO DE USUARIOS
 router.post('/register', async (req, res) => {
     const { email, password, nombre_completo } = req.body;
@@ -68,8 +69,14 @@ router.post('/userlogin', (req, res) => {
 
             // Crear el token con el rol
             const token = jwt.sign({ role: result[0].rol, email: email }, "jwt_secret_key", { expiresIn: '1d' });
-            res.cookie('token', token);
-            return res.json({ loginStatus: true, role: result[0].rol });
+            res.cookie('token', token); 
+                return res.json({
+                loginStatus: true,
+                role: result[0].rol,
+                id: result[0].id,
+                token 
+                });
+
 
         } catch (error) {
             console.error("❌ Error en login:", error);
@@ -125,6 +132,38 @@ router.delete('/usuarios/:id', (req, res) => {
 
         res.json({ message: "Usuario eliminado correctamente" });
     });
+});
+
+router.post('/recordatorios', (req, res) => {
+  const { usuario_id, materia_id, titulo, descripcion, fecha_entrega } = req.body;
+
+  con.query(
+    'INSERT INTO recordatorios (usuario_id, materia_id, titulo, descripcion, fecha_entrega) VALUES (?, ?, ?, ?, ?)',
+    [usuario_id, materia_id, titulo, descripcion, fecha_entrega],
+    (err, result) => {
+      if (err) {
+        console.error('Error al insertar recordatorio:', err);
+        return res.status(500).json({ error: 'Error interno del servidor' });
+      }
+      res.status(201).json({ id: result.insertId });
+    }
+  );
+});
+
+router.get('/materias', (req, res) => {
+  const usuario_id = req.query.usuario_id;
+
+  con.query(
+    'SELECT id, nombre FROM materias WHERE usuario_id = ?',
+    [usuario_id],
+    (err, result) => {
+      if (err) {
+        console.error('Error al obtener materias:', err);
+        return res.status(500).json({ error: 'Error interno del servidor' });
+      }
+      res.json(result);
+    }
+  );
 });
 
 export { router as userRouter };

@@ -29,7 +29,9 @@ const Login = () => {
         .then(result => {
             if (result.data.loginStatus) {
                 localStorage.setItem('auth-token', result.data.token);
-                localStorage.setItem('user-role', result.data.role);  // Guarda el rol
+                localStorage.setItem('user-role', result.data.role);  
+                localStorage.setItem('user-id', result.data.id);
+
     
                 if (result.data.role === 'USER') {
                     navigate('/Inicio');

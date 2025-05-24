@@ -9,6 +9,10 @@ function Inicio() {
     <>
       <div>
         <h1>Inicio</h1>
+        <button onClick={() => navigate("/AgregarPendiente")}>
+          Agregar Recordatorio
+        </button>
+
       </div>
     </>
   );
