@@ -9,14 +9,6 @@ function Inicio() {
     <>
       <div>
         <h1>Inicio</h1>
-        <button onClick={() => navigate('/clima')} className="boton-clima">
-          🌤️ Consultar Clima
-        </button>
-      </div>
-      <div>
-        <button onClick={() => navigate('/ChatIA')} className="boton-clima">
-          🤖 ChatIA
-        </button>
       </div>
     </>
   );

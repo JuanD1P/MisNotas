@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url("../../ImagenesP/ImagenesLogin/Fondo_Login.png");
+    background: url("../../ImagenesP/FONDOLOGINXD.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -22,16 +22,8 @@
     box-sizing: border-box;
     flex-wrap: wrap;
 }
-.logoLogin {             
-    position: absolute;
-    top: 0.2%;
-    left: 0.2%;
-    width: 8%; 
-}
-.ConeyLogin {             
-    width: 29%;
-    margin-left: 0%;
-}
+
+
 .LoginScontainer {
     width: 100%;
     max-width: 400px;
@@ -45,7 +37,7 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-    margin-left: 10%;
+ 
 }
 
 .LoginScontainer h2{

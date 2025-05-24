@@ -1,8 +1,12 @@
 body {
-  background-color: #062c3d; /* Color de fondo azul oscuro */
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.admin-panel {
+  padding: 40px 20px;
 }
 
 h2 {
@@ -11,15 +15,14 @@ h2 {
   margin: 30px 0;
 }
 
-/* Estilos para el título con efecto arcoíris */
 .chat-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
   background: linear-gradient(90deg, #00ffff, #0368ff, #6303fd, #aa02f8, #fc07aa, #f7024c, #00ffd5);
   background-size: 600%;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Para compatibilidad en Safari */
+  -webkit-text-fill-color: transparent; 
   color: transparent;
   animation: rainbow 10s linear infinite;
 }
@@ -31,12 +34,12 @@ h2 {
 }
 
 .table-container {
-  width: 90%;
-  max-width: 1000px;
+  width: 95%;
+  max-width: 1100px;
   margin: auto;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background-color: #ffffffcc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -46,15 +49,16 @@ table {
 }
 
 thead {
-  background-color: #0d6efd; /* Azul moderno */
+  background-color: #1e3c72; 
   color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 th, td {
-  padding: 15px;
+  padding: 16px;
   text-align: center;
+  font-size: 15px;
 }
 
 tbody tr {
@@ -62,11 +66,11 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: #f1f1f1;
+  background-color: #e3f2fd;
 }
 
 select {
-  padding: 6px 12px;
+  padding: 8px 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
@@ -76,10 +80,11 @@ select {
 }
 
 select:hover {
-  border-color: #0d6efd;
+  border-color: #1e3c72;
+  box-shadow: 0 0 5px rgba(30, 60, 114, 0.3);
 }
 
-p {
+p.mensaje {
   color: #00ffcc;
   text-align: center;
   margin-bottom: 20px;
@@ -87,16 +92,17 @@ p {
 }
 
 .boton-eliminar {
-  background-color: #e74c3c; /* rojo */
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
   color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .boton-eliminar:hover {
-  background-color: #c0392b;
+  background: linear-gradient(135deg, #ff1c57, #e62e00);
+  transform: scale(1.05);
 }

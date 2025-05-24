@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Coney from '../ImagenesP/GranjeroPOP.png'; 
-import logo from '../ImagenesP/ImagenesLogin/logoMiAgro.png';
 import './DOCSS/Login.css';
 
 const Login = () => {
@@ -15,7 +13,7 @@ const Login = () => {
     axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        localStorage.clear(); // Borra todo al entrar a /login
+        localStorage.clear(); 
     }, []);
 
     const handleSubmit = (event) => {
@@ -48,7 +46,6 @@ const Login = () => {
     
     return (
         <div className="LoginPcontainer">
-            <img src={logo} alt="Logo" className="logoLogin" />
             <div className='LoginScontainer'>
                 <div className={`text-dangerLogin ${error ? 'show' : ''}`}>
                     {error && error}
@@ -83,7 +80,6 @@ const Login = () => {
                 </form>
                 <button onClick={() => navigate('/Registro')} className='botonLogin1'>Ir a Registro</button>
             </div>
-            <img src={Coney} alt="Coney" className='ConeyLogin' />
         </div>
     );
 };

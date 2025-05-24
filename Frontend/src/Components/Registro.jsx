@@ -3,8 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import './DOCSS/Registro.css';
-import Maiz from '../ImagenesP/MAIZPOP.png'; 
-import logo from '../ImagenesP/ImagenesLogin/logoMiAgro.png';
 import { toast } from 'react-toastify';
 
 
@@ -68,8 +66,7 @@ const Registro = () => {
 
     return (
         <div className="RegistroPcontainer">
-            
-            <img src={logo} alt="Logo" className="logoRegistro" />
+        
             <div className='RegistroScontainer'>
             <h2>REGISTRO</h2>
 
@@ -136,26 +133,12 @@ const Registro = () => {
                     </button>
                 </div>
                 </div>
-                <div className='form3'>
-                    <input 
-                        type="checkbox" 
-                        name="tick" 
-                        id="tick"
-                        checked={termsAccepted}
-                        onChange={(e) => setTermsAccepted(e.target.checked)}
-                        className='input3'
-                    />
-                    <label htmlFor="tick">
-                        Acepto los <a href="TERMINOSYCONDICIONES.pdf" target="_blank" rel="noopener noreferrer">términos y condiciones</a>
-                    </label>
-                </div>
 
-                <button type="submit" disabled={!termsAccepted} className='botonRegistro'>Registrarse</button>
+                <button type="submit" className='botonRegistro'>Registrarse</button>
 
             </form>
             <button onClick={() => navigate('/userlogin')} className='botonLogin1'>Iniciar Sesion</button>
             </div>
-            <img src={Maiz} alt="Maiz" className='MaizRegistro' />
         </div>
     );
 };
