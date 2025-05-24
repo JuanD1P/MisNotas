@@ -1,0 +1,321 @@
+/* === Estilos base === */
+body {
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.react-calendar {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border: none;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.react-calendar__navigation button:hover {
+  color: #6c5ce7;
+}
+
+.react-calendar__tile {
+  padding: 12px 6px;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.react-calendar__tile:enabled:hover {
+  background: #f0f8ff;
+  transform: scale(1.05);
+}
+
+.react-calendar__tile--active {
+  background: #6c5ce7;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 0 3px #dfe6e9;
+}
+
+.react-calendar__tile--now {
+  background: #ffeaa7;
+  font-weight: bold;
+}
+
+.marcador-fecha {
+  width: 8px;
+  height: 8px;
+  background-color: #6c5ce7;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 4px;
+}
+
+
+.inicio-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.inicio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.titulo-animado {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #00c9ff, #92fe9d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: slideIn 1s ease-out;
+}
+
+.boton-agregar {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.boton-agregar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.filtro-botones button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.filtro-botones .activo {
+  background-color: #00b894;
+  color: white;
+}
+
+.lista-animada {
+  list-style: none;
+  padding-left: 0;
+  animation: fadeIn 0.8s ease;
+}
+
+.tarea-card {
+  background: #ffffffcc;
+  border-left: 6px solid #6c5ce7;
+  margin-bottom: 16px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.tarea-card:hover {
+  transform: scale(1.02);
+}
+
+.fecha {
+  color: #636e72;
+  font-size: 0.9rem;
+}
+
+.acciones {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.animado-boton {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.marcar-entregado {
+  background-color: #00cec9;
+}
+
+.marcar-entregado:hover {
+  background-color: #01a3a4;
+  transform: scale(1.05);
+}
+
+.eliminar {
+  background-color: #ff7675;
+}
+
+.eliminar:hover {
+  background-color: #d63031;
+  transform: scale(1.05);
+}
+
+.badge-enviado, .badge-pendiente {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.badge-enviado {
+  background-color: #55efc4;
+  color: #00695c;
+}
+
+.badge-pendiente {
+  background-color: #ffeaa7;
+  color: #d35400;
+}
+
+/* === NUEVO estilo Materias === */
+.tarjetas-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.tarjeta-materia {
+  flex: 1 1 140px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-materia:hover {
+  transform: scale(1.05);
+}
+
+.icono-materia {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.color-0 { border-left: 5px solid #6c5ce7; }
+.color-1 { border-left: 5px solid #00cec9; }
+.color-2 { border-left: 5px solid #e17055; }
+.color-3 { border-left: 5px solid #fab1a0; }
+.color-4 { border-left: 5px solid #81ecec; }
+
+/* === Calendario === */
+.calendario-full {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.marcador-fecha {
+  width: 8px;
+  height: 8px;
+  background: #6c5ce7;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 4px;
+}
+
+.detalle-tareas {
+  margin-top: 20px;
+  padding-left: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.detalle-tareas ul {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+
+.detalle-tareas li {
+  margin-bottom: 8px;
+}
+
+/* === Animaciones === */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitulo-animado {
+  margin-top: 20px;
+  animation: fadeIn 1s ease;
+}
+
+.mensaje-vacio {
+  font-style: italic;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.panel-inferior.nuevo-layout {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.materias-section {
+  flex: 1;
+}
+
+.calendario-full.nuevo-estilo-calendario {
+  flex: 1;
+  min-width: 300px;
+}

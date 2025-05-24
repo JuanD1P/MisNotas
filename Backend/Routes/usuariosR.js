@@ -166,4 +166,53 @@ router.get('/materias', (req, res) => {
   );
 });
 
+router.get('/recordatorios', (req, res) => {
+  const usuario_id = req.query.usuario_id;
+
+  con.query(
+    'SELECT * FROM recordatorios WHERE usuario_id = ?',
+    [usuario_id],
+    (err, result) => {
+      if (err) {
+        console.error('Error al obtener recordatorios:', err);
+        return res.status(500).json({ error: 'Error interno del servidor' });
+      }
+      res.json(result);
+    }
+  );
+});
+
+// Cambiar estado de enviado a 1
+router.put('/recordatorios/:id/entregar', (req, res) => {
+  const { id } = req.params;
+  con.query(
+    'UPDATE recordatorios SET enviado = 1 WHERE id = ?',
+    [id],
+    (err, result) => {
+      if (err) {
+        console.error('Error al marcar como entregado:', err);
+        return res.status(500).json({ error: 'Error al actualizar' });
+      }
+      res.json({ message: 'Estado actualizado a entregado' });
+    }
+  );
+});
+
+// Eliminar recordatorio
+router.delete('/recordatorios/:id', (req, res) => {
+  const { id } = req.params;
+  con.query(
+    'DELETE FROM recordatorios WHERE id = ?',
+    [id],
+    (err, result) => {
+      if (err) {
+        console.error('Error al eliminar:', err);
+        return res.status(500).json({ error: 'Error al eliminar' });
+      }
+      res.json({ message: 'Recordatorio eliminado' });
+    }
+  );
+});
+
+
 export { router as userRouter };
