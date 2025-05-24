@@ -1,0 +1,159 @@
+/*SE IMPORTAN APIS PERSONALIZACION*/
+@import url("https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/*____________________________________________________________________*/
+/*                           INICIO DE SESION                         */
+/*____________________________________________________________________*/
+
+
+.LoginPcontainer {          
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("../../ImagenesP/ImagenesLogin/Fondo_Login.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+.logoLogin {             
+    position: absolute;
+    top: 0.2%;
+    left: 0.2%;
+    width: 8%; 
+}
+.ConeyLogin {             
+    width: 29%;
+    margin-left: 0%;
+}
+.LoginScontainer {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 16px 32px rgba(0, 152, 152, 0.5); 
+    position: relative;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-left: 10%;
+}
+
+.LoginScontainer h2{
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgb(26, 25, 25);
+    margin-top: 1.2% !important;
+    margin: 12%;
+
+}
+.formularioLogin {
+    animation: fadeIn 1s ease-in-out;
+}
+label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0.5rem 1rem;
+    color: #000000;
+}
+input[type="email"], input[type="password"], input[type="checkbox"] {
+    width: 300px;          
+    max-width: 100%;
+    padding: 0.8rem 1rem;    
+    margin: 0.8rem auto;
+    display: block;
+    font-size: 16px;         
+    border: 1px solid #1c1313;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #2e00a4;
+}
+.boton2, .botonLogin1 {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: #004288;
+    color: #000000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1rem;
+}
+.boton2:disabled, .botonLogin1:disabled {
+    background: #d2d6f8;
+    cursor: not-allowed;
+}
+.boton2:hover:not(:disabled), .botonLogin1:hover:not(:disabled) {
+    background: #017168;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+.Terminos{
+    text-align: center !important;
+}
+.form3{
+    text-align: center;
+}
+.text-dangerLogin {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    z-index: 1000;
+}
+.text-dangerLogin.show {
+    opacity: 1;
+    visibility: visible;
+    animation: slideIn 0.5s forwards;
+}
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -20%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}

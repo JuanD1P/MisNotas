@@ -1,0 +1,179 @@
+/*SE IMPORTAN APIS PERSONALIZACION*/
+@import url("https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/*____________________________________________________________________*/
+/*                           REGISTRO USUARIO                         */
+/*____________________________________________________________________*/
+
+.MaizRegistro {             
+    width: 29%; 
+    height: auto;
+    margin-right: 0; 
+}
+.RegistroPcontainer {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("../../ImagenesP/ImagenesLogin/Fondo_Login.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.logoRegistro {
+    position: absolute;
+    top: 0.2%;
+    left: 0.2%;
+    width: 8%;
+}
+
+.RegistroScontainer {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 16px 32px rgba(0, 152, 152, 0.5); 
+    position: relative;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-left: 10%;
+}
+
+.RegistroScontainer h2 {
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgb(26, 25, 25);
+    margin-top: 1.2% !important;
+    margin: 12%;
+}
+
+.formularioRegistro {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.form1, .form2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.VerContraseña {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.VerContraseña input {
+    flex: 1;
+    padding-right: 40px; /* espacio para el ícono */
+}
+
+.VerContraseña button {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.VerContraseña button:hover {
+    color: #1f8b4c; /* verde o el color que combine con tu tema */
+}
+
+
+
+.form1 label, .form2 label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.form1 input, .form2 input {
+    width: calc(100% - 2rem);
+    padding: 0.5rem;
+    margin: 0.5rem 1rem;
+    border: 1px solid #1c1313;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    border-color: #2e00a4;
+}
+
+.botonRegistro {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: #004288;
+    color: #000000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1rem;
+}
+.botonRegistro:disabled {
+    background: #d2d6f8;
+    cursor: not-allowed;
+}
+
+.botonRegistro:hover:not(:disabled) {
+    background: #017168;
+}
+
+.imagenRegistro {
+    width: 400px;
+    margin-left: 40px;
+    animation: fadeIn 2s ease;
+}
+
+.text-dangerRegistro {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.text-dangerRegistro.show {
+    opacity: 1;
+    visibility: visible;
+    animation: slideIn 0.5s forwards;
+}
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -20%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+
+.checkbox-container {
+text-align: center !important;
+}
