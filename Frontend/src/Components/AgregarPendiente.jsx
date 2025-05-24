@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './DOCSS/Formulario.css';
+import './DOCSS/AgregarPendiente.css';
 
 function AgregarPendiente() {
   const [materias, setMaterias] = useState([]);
@@ -35,18 +35,18 @@ function AgregarPendiente() {
         descripcion: form.descripcion,
         fecha_entrega: form.fecha_entrega
       });
-      alert('Recordatorio agregado exitosamente');
+      alert('✅ Recordatorio agregado exitosamente');
       navigate('/Inicio');
     } catch (err) {
       console.error("Error al agregar recordatorio:", err);
-      alert('Hubo un error al guardar el recordatorio.');
+      alert('❌ Hubo un error al guardar el recordatorio.');
     }
   };
 
   return (
     <div className="form-container">
-      <h2>Agregar Recordatorio Académico</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="titulo-form">📝 Agregar Recordatorio Académico</h2>
+      <form onSubmit={handleSubmit} className="formulario">
         <label>Materia:</label>
         <select name="materia_id" value={form.materia_id} onChange={handleChange} required>
           <option value="">Seleccione una materia</option>
@@ -64,7 +64,10 @@ function AgregarPendiente() {
         <label>Fecha de entrega:</label>
         <input type="date" name="fecha_entrega" value={form.fecha_entrega} onChange={handleChange} required />
 
-        <button type="submit">Guardar</button>
+        <div className="button-group">
+          <button type="submit" className="boton-principal">💾 Guardar</button>
+          <button type="button" className="boton-secundario" onClick={() => navigate('/Inicio')}>⬅ Volver</button>
+        </div>
       </form>
     </div>
   );
