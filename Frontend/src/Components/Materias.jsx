@@ -145,27 +145,30 @@ const Materias = () => {
             </div>
 
             <div className="detalle-tareas">
-              {Array.isArray(notas[mat.id]) && notas[mat.id].length > 0 ? (
-                notas[mat.id].map((n, i) => (
-                  <li key={i}>
-                    📝 <strong>{n.titulo}</strong> - {n.valor} ({n.porcentaje}%)
-                    <button
-                      className="boton-mini editar"
-                      onClick={() => setNotaEditando({ ...n, materia_id: mat.id })}
-                    >
-                      ✏️
-                    </button>
-                    <button
-                      className="boton-mini eliminar"
-                      onClick={() => eliminarNota(n.id, mat.id)}
-                    >
-                      🗑️
-                    </button>
-                  </li>
-                ))
-              ) : (
-                <p style={{ fontStyle: 'italic', color: '#666' }}>No hay notas aún.</p>
-              )}
+              {notas.hasOwnProperty(mat.id) ? (
+                notas[mat.id].length > 0 ? (
+                  notas[mat.id].map((n, i) => (
+                   <li key={i}>
+                     📝 <strong>{n.titulo}</strong> - {n.valor} ({n.porcentaje}%)
+                     <button
+                        className="boton-mini editar"
+                       onClick={() => setNotaEditando({ ...n, materia_id: mat.id })}
+                     >
+                       ✏️
+                     </button>
+                     <button
+                       className="boton-mini eliminar"
+                       onClick={() => eliminarNota(n.id, mat.id)}
+                     >
+                       🗑️
+                     </button>                
+                    </li>
+                  ))
+                ) : (
+                  <p style={{ fontStyle: 'italic', color: '#666' }}>No hay notas aún.</p>
+               )
+               ) : null}
+
             </div>
 
             <div className="formulario-nota">
