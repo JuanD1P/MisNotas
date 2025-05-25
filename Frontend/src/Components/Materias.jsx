@@ -154,13 +154,13 @@ const Materias = () => {
                         className="boton-mini editar"
                        onClick={() => setNotaEditando({ ...n, materia_id: mat.id })}
                      >
-                       ✏️
+                       Editar ✏️
                      </button>
                      <button
                        className="boton-mini eliminar"
                        onClick={() => eliminarNota(n.id, mat.id)}
                      >
-                       🗑️
+                       Eliminar 🗑️
                      </button>                
                     </li>
                   ))
