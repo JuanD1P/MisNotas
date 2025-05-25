@@ -95,7 +95,7 @@ function Inicio() {
         </div>
 
         <h2 className="titulo-animado">
-          {filtro === 'proximas' ? '📌 Tareas próximas (7 días)' : filtro === 'entregadas' ? '✅ Entregadas' : '🗂️ Todas las tareas'}
+          {filtro === 'proximas' ? '📌 Tareas próximas (7 días)' : filtro === 'entregadas' ? 'Entregadas' : 'Todas las tareas'}
         </h2>
 
         {tareasFiltradas().length === 0 ? (
