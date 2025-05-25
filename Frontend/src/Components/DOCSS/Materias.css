@@ -1,0 +1,159 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #243B55, #141E30);
+  margin: 0;
+  padding: 2rem;
+  color: #fff;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(270deg, 
+    #ffffff, #fae7d5, #f7f7b5, #c4ffc4, #bdbdff, #e3bbff, #d3a0fa, #ff9f9f);
+  background-size: 1600% 1600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowMove 10s linear infinite;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+@keyframes rainbowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+input[type="text"],
+input[type="number"] {
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 0.3rem;
+  width: 180px;
+  font-size: 1rem;
+  background: #f0f4f8;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border: 2px solid #6a82fb;
+  background-color: #fff;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button.bg-blue-500 {
+  background: linear-gradient(to right, #6a82fb, #fc5c7d);
+  color: white;
+}
+
+button.bg-green-500 {
+  background: linear-gradient(to right, #43e97b, #38f9d7);
+  color: black;
+}
+
+button.text-red-500 {
+  background: #ff6b6b;
+  color: white;
+}
+
+button.text-blue-600 {
+  color: #38f9d7;
+}
+
+button.text-blue-600:hover {
+  text-decoration: underline;
+}
+
+.materia-card {
+  background: #ffffff; 
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  color: #020202; 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.materia-card h3,
+.materia-card p {
+  color: #0e0e0e !important; 
+  margin: 0.3rem 0;
+}
+
+.materia-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.materia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.materia-header h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.notas-list {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  font-size: 0.95rem;
+  color: #34495e;
+}
+
+.text-muted {
+  color: #7f8c8d;
+  font-style: italic;
+}
+.botones-materias {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.boton-mini {
+  margin-left: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.boton-mini.editar:hover {
+  color: #0ad;
+}
+
+.boton-mini.eliminar:hover {
+  color: red;
+}
+
+.formulario-edicion {
+  margin-top: 10px;
+}

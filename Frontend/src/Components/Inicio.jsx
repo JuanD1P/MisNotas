@@ -92,6 +92,9 @@ function Inicio() {
           <button onClick={() => setFiltro('entregadas')} className={filtro === 'entregadas' ? 'activo' : ''}>
             Entregadas
           </button>
+          <button onClick={() => navigate("/Materias")} className="boton-agregar">
+          ➕ Materias
+        </button>
         </div>
 
         <h2 className="titulo-animado">
