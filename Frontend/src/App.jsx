@@ -11,6 +11,7 @@ import NotFound from "./Components/NotFound";
 import AgregarPendiente from './Components/AgregarPendiente';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProtectedRoute from './Components/PrivateRoute';
+import Materias from './Components/Materias';
 
 function App() {
     return (
@@ -52,6 +53,12 @@ function App() {
                     <Route path="/AgregarPendiente" element={
                         <ProtectedRoute allowedRoles={['USER']}>
                             <AgregarPendiente />
+                        </ProtectedRoute>
+                    } />
+                    {/* RUTAS PARA materias */}
+                    <Route path="/materias" element={
+                        <ProtectedRoute allowedRoles={['USER']}>
+                            <Materias />
                         </ProtectedRoute>
                     } />
 

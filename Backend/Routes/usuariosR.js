@@ -154,7 +154,7 @@ router.get('/materias', (req, res) => {
   const usuario_id = req.query.usuario_id;
 
   con.query(
-    'SELECT id, nombre FROM materias WHERE usuario_id = ?',
+    'SELECT id, nombre, descripcion FROM materias WHERE usuario_id = ?',
     [usuario_id],
     (err, result) => {
       if (err) {
@@ -165,6 +165,7 @@ router.get('/materias', (req, res) => {
     }
   );
 });
+
 
 router.get('/recordatorios', (req, res) => {
   const usuario_id = req.query.usuario_id;
@@ -216,3 +217,156 @@ router.delete('/recordatorios/:id', (req, res) => {
 
 
 export { router as userRouter };
+
+
+router.post('/materias', (req, res) => {
+  const { usuario_id, nombre, descripcion } = req.body;
+
+  if (!usuario_id || !nombre) {
+    return res.status(400).json({ error: "Faltan campos obligatorios" });
+  }
+
+  con.query(
+    'INSERT INTO materias (usuario_id, nombre, descripcion) VALUES (?, ?, ?)',
+    [usuario_id, nombre, descripcion],
+    (err, result) => {
+      if (err) {
+        console.error('Error al insertar materia:', err);
+        return res.status(500).json({ error: 'Error al insertar materia' });
+      }
+      res.status(201).json({ id: result.insertId });
+    }
+  );
+});
+
+
+router.delete('/materias/:id', (req, res) => {
+  const { id } = req.params;
+
+  con.query('DELETE FROM materias WHERE id = ?', [id], (err, result) => {
+    if (err) {
+      console.error('Error al eliminar materia:', err);
+      return res.status(500).json({ error: 'Error al eliminar materia' });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'Materia no encontrada' });
+    }
+    res.json({ message: 'Materia eliminada correctamente' });
+  });
+});
+
+
+router.get('/notas', (req, res) => {
+  const { materia_id } = req.query;
+
+  con.query(
+    'SELECT id, titulo, valor, porcentaje FROM notas WHERE materia_id = ?',
+    [materia_id],
+    (err, result) => {
+      if (err) {
+        console.error('Error al obtener notas:', err);
+        return res.status(500).json({ error: 'Error al obtener notas' });
+      }
+      res.json(result);
+    }
+  );
+});
+
+
+router.post('/notas', (req, res) => {
+  const { materia_id, titulo, valor, porcentaje } = req.body;
+
+  if (!materia_id || !titulo || !porcentaje) {
+    return res.status(400).json({ error: 'Faltan campos obligatorios' });
+  }
+
+  // Sumar porcentajes existentes para validar
+  con.query('SELECT SUM(porcentaje) AS total FROM notas WHERE materia_id = ?', [materia_id], (err, result) => {
+    if (err) {
+      console.error('Error al sumar porcentajes:', err);
+      return res.status(500).json({ error: 'Error interno' });
+    }
+
+    const totalActual = result[0].total || 0;
+    const nuevoTotal = totalActual + parseFloat(porcentaje);
+
+    if (nuevoTotal > 100) {
+      return res.status(400).json({ error: `La suma total de porcentajes excede 100% (actual: ${totalActual}%)` });
+    }
+
+    // Insertar nota
+    con.query(
+      'INSERT INTO notas (materia_id, titulo, valor, porcentaje) VALUES (?, ?, ?, ?)',
+      [materia_id, titulo, valor, porcentaje],
+      (err, result) => {
+        if (err) {
+          console.error('Error al insertar nota:', err);
+          return res.status(500).json({ error: 'Error al insertar nota' });
+        }
+        res.status(201).json({ id: result.insertId });
+      }
+    );
+  });
+});
+
+
+
+router.put('/notas/:id', (req, res) => {
+  const { id } = req.params;
+  const { titulo, valor, porcentaje, materia_id } = req.body;
+
+  if (!titulo || valor === undefined || porcentaje === undefined || !materia_id) {
+    return res.status(400).json({ error: 'Faltan campos obligatorios' });
+  }
+
+  // Verificar que el nuevo porcentaje no exceda el 100% sumando los otros registros
+  const sqlSuma = 'SELECT SUM(porcentaje) AS total FROM notas WHERE materia_id = ? AND id != ?';
+
+  con.query(sqlSuma, [materia_id, id], (err, result) => {
+    if (err) {
+      console.error('Error al verificar porcentajes:', err);
+      return res.status(500).json({ error: 'Error al validar porcentaje' });
+    }
+
+    const totalActual = result[0].total || 0;
+    const nuevoTotal = totalActual + parseFloat(porcentaje);
+
+    if (nuevoTotal > 100) {
+      return res.status(400).json({ error: `La suma de porcentajes excede el 100% (actual: ${totalActual}%)` });
+    }
+
+    // Actualizar la nota
+    const sqlUpdate = 'UPDATE notas SET titulo = ?, valor = ?, porcentaje = ? WHERE id = ?';
+
+    con.query(sqlUpdate, [titulo, valor, porcentaje, id], (err, result) => {
+      if (err) {
+        console.error('Error al actualizar nota:', err);
+        return res.status(500).json({ error: 'Error al actualizar nota' });
+      }
+
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ error: 'Nota no encontrada' });
+      }
+
+      res.json({ message: 'Nota actualizada correctamente' });
+    });
+  });
+});
+
+
+router.delete('/notas/:id', (req, res) => {
+  const { id } = req.params;
+
+  con.query('DELETE FROM notas WHERE id = ?', [id], (err, result) => {
+    if (err) {
+      console.error('Error al eliminar nota:', err);
+      return res.status(500).json({ error: 'Error al eliminar nota' });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'Nota no encontrada' });
+    }
+
+    res.json({ message: 'Nota eliminada correctamente' });
+  });
+});
